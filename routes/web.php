@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PagesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,18 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/index', function () {
-    return view('index');
-});
+Route::get('/', [PagesController::class,'index'])->name('index');
+Route::get('/daily-transactions', [PagesController::class,'dailyTransactions'])->name('daily.transactions');
+Route::get('/weekly-transactions', [PagesController::class,'weeklyTransactions'])->name('weekly.transactions');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/test', function () {
-    return view('test');
-});
+// Route::get('/index', function () {
+//     return view('index');
+// });
 
-Route::get('/daily', function () {
-    return view('daily_transaction');
-});
+// Route::get('/test', function () {
+//     return view('test');
+// });
+
+// Route::get('/daily', function () {
+//     return view('daily_transaction');
+// });
+
+
