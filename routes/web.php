@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\MpesaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,8 @@ use App\Http\Controllers\PagesController;
 Route::get('/', [PagesController::class,'index'])->name('index');
 Route::get('/daily-transactions', [PagesController::class,'dailyTransactions'])->name('daily.transactions');
 Route::get('/weekly-transactions', [PagesController::class,'weeklyTransactions'])->name('weekly.transactions');
+Route::get('/auth', [MpesaController::class,'authorization'])->name('auth');
+Route::get('/validation/url', [MpesaController::class,'validationUrl'])->name('validation.url');
 // Route::get('/', function () {
 //     return view('welcome');
 // });

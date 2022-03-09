@@ -110,7 +110,7 @@
               </div>
 
               <div class="card-body">
-                <h5 class="card-title">Customers <span>| This Year</span></h5>
+                <h5 class="card-title">Total Transactions<span>| This Year</span></h5>
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -118,7 +118,7 @@
                   </div>
                   <div class="ps-3">
                     <h6>1244</h6>
-                    <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+                    <span class="text-danger small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
 
                   </div>
                 </div>
@@ -237,7 +237,7 @@
                       <th scope="col">Customer</th>
                       <th scope="col">Product</th>
                       <th scope="col">Price</th>
-                      <th scope="col">Status</th>
+                      <th scope="col">Amount Paid</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -245,36 +245,36 @@
                       <th scope="row"><a href="#">#2457</a></th>
                       <td>Brandon Jacob</td>
                       <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                      <td>$64</td>
-                      <td><span class="badge bg-success">Approved</span></td>
+                      <td>6400</td>
+                      <td><span class="badge bg-success">6400</span></td>
                     </tr>
                     <tr>
                       <th scope="row"><a href="#">#2147</a></th>
                       <td>Bridie Kessler</td>
                       <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                      <td>$47</td>
-                      <td><span class="badge bg-warning">Pending</span></td>
+                      <td>4700</td>
+                      <td><span class="badge bg-success">4700</span></td>
                     </tr>
                     <tr>
                       <th scope="row"><a href="#">#2049</a></th>
                       <td>Ashleigh Langosh</td>
                       <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                      <td>$147</td>
-                      <td><span class="badge bg-success">Approved</span></td>
+                      <td>1470</td>
+                      <td><span class="badge bg-success">1470</span></td>
                     </tr>
                     <tr>
                       <th scope="row"><a href="#">#2644</a></th>
                       <td>Angus Grady</td>
                       <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                      <td>$67</td>
-                      <td><span class="badge bg-danger">Rejected</span></td>
+                      <td>6700</td>
+                      <td><span class="badge bg-success">6700</span></td>
                     </tr>
                     <tr>
                       <th scope="row"><a href="#">#2644</a></th>
                       <td>Raheem Lehner</td>
                       <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                      <td>$165</td>
-                      <td><span class="badge bg-success">Approved</span></td>
+                      <td>1650</td>
+                      <td><span class="badge bg-success">1650</span></td>
                     </tr>
                   </tbody>
                 </table>
@@ -315,7 +315,7 @@
                 <div class="activite-label">32 min</div>
                 <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
                 <div class="activity-content">
-                  Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
+                  John Doe <a href="#" class="fw-bold text-dark">deposited 3200 </a> 
                 </div>
               </div><!-- End activity item-->
 
@@ -323,7 +323,7 @@
                 <div class="activite-label">56 min</div>
                 <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
                 <div class="activity-content">
-                  Voluptatem blanditiis blanditiis eveniet
+                  Confrimed, 1200 received from Wangwana Business
                 </div>
               </div><!-- End activity item-->
 
@@ -331,31 +331,15 @@
                 <div class="activite-label">2 hrs</div>
                 <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
                 <div class="activity-content">
-                  Voluptates corrupti molestias voluptatem
+                  Confrimed, 1200 received from Wanaronwa Business
                 </div>
               </div><!-- End activity item-->
 
               <div class="activity-item d-flex">
-                <div class="activite-label">1 day</div>
-                <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
+                <div class="activite-label">2 hrs</div>
+                <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
                 <div class="activity-content">
-                  Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
-                </div>
-              </div><!-- End activity item-->
-
-              <div class="activity-item d-flex">
-                <div class="activite-label">2 days</div>
-                <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
-                <div class="activity-content">
-                  Est sit eum reiciendis exercitationem
-                </div>
-              </div><!-- End activity item-->
-
-              <div class="activity-item d-flex">
-                <div class="activite-label">4 weeks</div>
-                <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                <div class="activity-content">
-                  Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
+                  Confrimed, 4200 received from Steves Business
                 </div>
               </div><!-- End activity item-->
 
