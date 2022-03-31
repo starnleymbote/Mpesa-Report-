@@ -29,4 +29,12 @@ class PagesController extends Controller
     {
         return view('weekly_transactions');
     }
+
+    /**
+     * Returns a view - USer Profile view
+     */
+    public function userProfile()
+    {
+        return view('profile');
+    }
 }

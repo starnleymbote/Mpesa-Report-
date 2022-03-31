@@ -190,14 +190,14 @@
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
+        <a class="nav-link collapsed" href="/daily-transactions">
           <i class="bi bi-files"></i>
           <span>Daily Transactions</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
+        <a class="nav-link collapsed" href="/weekly-transactions">
           <i class="bi bi-files"></i>
           <span>Weekly Transactions</span>
         </a>
@@ -211,7 +211,7 @@
       </li><!-- End Register Page Nav --> --}}
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <a class="nav-link collapsed" href="{{ route('logout') }}">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Log out</span>
         </a>

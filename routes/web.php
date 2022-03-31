@@ -15,30 +15,24 @@ use App\Http\Controllers\MpesaController;
 */
 
 
-Route::get('/', [PagesController::class,'index'])->name('index');
-Route::get('/daily-transactions', [PagesController::class,'dailyTransactions'])->name('daily.transactions');
-Route::get('/weekly-transactions', [PagesController::class,'weeklyTransactions'])->name('weekly.transactions');
-Route::get('/auth', [MpesaController::class,'authorization'])->name('auth');
-Route::get('/validation', [MpesaController::class,'validationUrl'])->name('validation.url');
-Route::get('/validation/url', [MpesaController::class,'registerUrl'])->name('validationr.url');
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
-// Route::get('/index', function () {
-//     return view('index');
-// });
+Route::middleware(['auth'])->group(function () {
+    
+    Route::get('/', [PagesController::class,'index'])->name('index');
+    Route::get('/daily-transactions', [PagesController::class,'dailyTransactions'])->name('daily.transactions');
+    Route::get('/weekly-transactions', [PagesController::class,'weeklyTransactions'])->name('weekly.transactions');
+    Route::get('/auth', [MpesaController::class,'authorization'])->name('auth');
+    Route::get('/validation', [MpesaController::class,'validationUrl'])->name('validation.url');
+    Route::get('/validation/url', [MpesaController::class,'registerUrl'])->name('validation.url');
+    Route::get('/profile', [PagesController::class,'userProfile'])->name('user.profile');
 
-// Route::get('/test', function () {
-//     return view('test');
-// });
-
-// Route::get('/daily', function () {
-//     return view('daily_transaction');
-// });
-
+});
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
