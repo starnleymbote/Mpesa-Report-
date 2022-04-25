@@ -31,6 +31,7 @@ class MpesaController extends Controller
         $accessToken = Mpesa::authorization();
 
         $url = 'https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl';
+        
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
@@ -39,12 +40,12 @@ class MpesaController extends Controller
         ));
 
         $post_data = array(
-            'ShortCode' => 600979,
+            'ShortCode' => 601380,
             'ResponseType' => 'Completed',
             //'ConfirmationURL' => 'https://mydomain.com/confirmation',
             //'ValidationURL' => 'https://mydomain.com/validation',
-            'ConfirmationURL' => 'https://posthere.io/ce78-4290-84aa',
-            'ValidationURL' => 'https://posthere.io/ce78-4290-84aa',
+            'ConfirmationURL' => 'https://212f-197-232-61-196.ngrok.io//validation/url',
+            'ValidationURL' => 'https://212f-197-232-61-196.ngrok.io//validation/url',
         );
 
 
@@ -60,6 +61,11 @@ class MpesaController extends Controller
         curl_close($ch);
         //echo $response;
         return $response;
+    }
+
+    public function confirm()
+    {
+
     }
 
     public static function generateSandBoxToken()
@@ -112,7 +118,7 @@ class MpesaController extends Controller
         $curl_post_data = array(
             //Fill in the request parameters with valid values
             'ShortCode' => env('MPESA_SHORTCODE'),
-            'ResponseType' => 'Completed',
+            'ResponseType' => 'Confirmed',
             'ValidationURL' => env('MPESA_VALIDATION_URL'),
             'ConfirmationURL' => env('MPESA_CONFIRMATION_URL'),
         );
