@@ -20,7 +20,7 @@ use App\Http\Controllers\MpesaController;
 //     return view('welcome');
 // });
 
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
     
     Route::get('/', [PagesController::class,'index'])->name('index');
     Route::get('/daily-transactions', [PagesController::class,'dailyTransactions'])->name('daily.transactions');
@@ -30,8 +30,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/validation/url', [MpesaController::class,'registerUrl'])->name('register.url');
     Route::get('/confirmation', [MpesaController::class,'confirmationUrl'])->name('confirmation.url');
     Route::get('/profile', [PagesController::class,'userProfile'])->name('user.profile');
+    Route::get('/c2b', [MpesaController::class,'customerToBusiness'])->name('c2b');
 
-});
+// });
 
 
 

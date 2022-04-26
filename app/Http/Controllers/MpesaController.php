@@ -42,10 +42,8 @@ class MpesaController extends Controller
         $post_data = array(
             'ShortCode' => 601380,
             'ResponseType' => 'Completed',
-            //'ConfirmationURL' => 'https://mydomain.com/confirmation',
-            //'ValidationURL' => 'https://mydomain.com/validation',
-            'ConfirmationURL' => 'https://212f-197-232-61-196.ngrok.io//validation/url',
-            'ValidationURL' => 'https://212f-197-232-61-196.ngrok.io//validation/url',
+            'ConfirmationURL' => 'https://3b9a-197-232-61-238.ngrok.io/confirmation/',
+            'ValidationURL' => 'https://3b9a-197-232-61-238.ngrok.io/validation/',
         );
 
 
@@ -134,7 +132,44 @@ class MpesaController extends Controller
 
     }
 
+    public function customerToBusiness()
+    {
 
+        try {
+            $environment = env("MPESA_ENV");
+        } catch (\Throwable $th) {
+            $environment = env("MPESA_ENV");
+        }
+
+        if ($environment == "live") {
+            $url = 'https://api.safaricom.co.ke/mpesa/c2b/v1/simulate';
+            $token = self::generateLiveToken();
+        } elseif ($environment == "sandbox") {
+            $url = 'https://sandbox.safaricom.co.ke/mpesa/c2b/v1/simulate';
+            $token = self::generateSandBoxToken();
+        } else {
+            return json_encode(["Message" => "invalid application status"]);
+        }
+
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Authorization:Bearer ' . Mpesa::authorization()));
+        $curl_post_data = array(
+            'ShortCode' => 601380,
+            'CommandID' => 'CustomerPayBillOnline',
+            'Amount' => 1,
+            'Msisdn' => '254705822035',
+            'BillRefNumber' => 'Testing',
+        );
+        $data_string = json_encode($curl_post_data);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+        curl_setopt($curl, CURLOPT_HEADER, false);
+        $curl_response = curl_exec($curl);
+        echo $curl_response;
+    }
 
 
 }
