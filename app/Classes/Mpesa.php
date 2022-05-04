@@ -20,7 +20,7 @@ class Mpesa{
         // an authorization header of type Basic 
 
 
-        $credentials = base64_encode('JHcH1tBv5zB9jATEqgSjnJhG9tUFTKh6:O8Zs4OhuAgGDkxnC');
+        $credentials = base64_encode('Nx2XPJYTJUYKo3VOxFrnVVv1OlLrOabF:DXd6yRUxVZgT00Oc');
         //$credentials = base64_encode('zHdFkB3lNsiyMVqSs8WIfB4G84ivhu0y:Bbc0W7tKDhOEWL6a');
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Authorization: Basic '.$credentials)); //setting a custom header
         //curl_setopt($curl, CURLOPT_HEADER, true);

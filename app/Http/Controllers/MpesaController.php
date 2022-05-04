@@ -28,8 +28,9 @@ class MpesaController extends Controller
      */
     public function validationUrl()
     {
-        $accessToken = Mpesa::authorization();
+        return $accessToken = Mpesa::authorization();
 
+        
         $url = 'https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl';
         
         $ch = curl_init();
@@ -40,10 +41,10 @@ class MpesaController extends Controller
         ));
 
         $post_data = array(
-            'ShortCode' => 601380,
+            'ShortCode' => 600247,
             'ResponseType' => 'Completed',
-            'ConfirmationURL' => 'https://3b9a-197-232-61-238.ngrok.io/confirmation/',
-            'ValidationURL' => 'https://3b9a-197-232-61-238.ngrok.io/validation/',
+            'ConfirmationURL' => 'https://posthere.io/67c2-4e3c-985d',
+            'ValidationURL' => 'https://posthere.io/67c2-4e3c-985d/1',
         );
 
 
@@ -53,7 +54,7 @@ class MpesaController extends Controller
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_data));
 
         $response = curl_exec($ch);
-        print_r($response);
+        //print_r($response);
 
         
         curl_close($ch);
@@ -61,10 +62,6 @@ class MpesaController extends Controller
         return $response;
     }
 
-    public function confirm()
-    {
-
-    }
 
     public static function generateSandBoxToken()
     {
@@ -132,6 +129,15 @@ class MpesaController extends Controller
 
     }
 
+    public function mpesaData(Request $request)
+    {
+        \Log::debug("reaching the local host");
+        //$content=json_decode($request->getContent());
+        //$data = json_decode($request->getContent(),true);
+
+        \Log::alert($data);
+    }
+
     public function customerToBusiness()
     {
 
@@ -151,15 +157,15 @@ class MpesaController extends Controller
             return json_encode(["Message" => "invalid application status"]);
         }
 
-
+        self::validationUrl();
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Authorization:Bearer ' . Mpesa::authorization()));
         $curl_post_data = array(
-            'ShortCode' => 601380,
-            'CommandID' => 'CustomerPayBillOnline',
-            'Amount' => 1,
-            'Msisdn' => '254705822035',
+            'ShortCode' => 600247,
+            'CommandID' => 'CustomerBuyGoodsOnline',
+            'Amount' => 100,
+            'Msisdn' => '254724628580',
             'BillRefNumber' => 'Testing',
         );
         $data_string = json_encode($curl_post_data);
@@ -169,6 +175,7 @@ class MpesaController extends Controller
         curl_setopt($curl, CURLOPT_HEADER, false);
         $curl_response = curl_exec($curl);
         echo $curl_response;
+
     }
 
 

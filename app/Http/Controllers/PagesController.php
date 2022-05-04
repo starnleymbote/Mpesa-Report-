@@ -37,4 +37,9 @@ class PagesController extends Controller
     {
         return view('profile');
     }
+
+    public function updateProfile()
+    {
+        return view('update_profile');
+    }
 }
