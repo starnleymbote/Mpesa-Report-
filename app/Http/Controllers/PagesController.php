@@ -42,9 +42,9 @@ class PagesController extends Controller
     public function updateProfile()
     {
 
-        $user = Auth::user();
+       $user = Auth::user();
 
-
+       
         return view('update_profile')->with('user', $user);
     }
 

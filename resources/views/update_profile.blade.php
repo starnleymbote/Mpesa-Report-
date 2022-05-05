@@ -13,27 +13,27 @@
             <h5 class="card-title">Update Profile</h5>
 
             <!-- General Form Elements -->
-            <form action="{{ route('store.update') }}" method="POST">
+            <form action="{{ route('store.update') }}" method="POST" enctype="multipart/form-data">
 
               @csrf
 
               <div class="row mb-3">
                 <label for="inputText" class="col-sm-2 col-form-label">Full Names</label>
                 <div class="col-sm-10">
-                  <input type="text" name="full_names" value="{{$user ->name}}" class="form-control">
+                  <input type="text" name="full_names" value="{{ $user ->name}}" class="form-control">
                 </div>
               </div>
               
               <div class="row mb-3">
                 <label for="inputEmail" class="col-sm-2 col-form-label">Phone</label>
                 <div class="col-sm-10">
-                  <input type="numeric" name="phone" value="{{$user ->phone}}" class="form-control">
+                  <input type="numeric" name="phone" value="{{ $user ->phone}}" class="form-control">
                 </div>
               </div>
               <div class="row mb-3">
                 <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                  <input type="email" name="email" value="{{$user ->email}}" class="form-control">
+                  <input type="email" name="email" value="{{ $user ->email}}" class="form-control">
                 </div>
               </div>
 

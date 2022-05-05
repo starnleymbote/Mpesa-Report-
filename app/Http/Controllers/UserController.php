@@ -57,9 +57,9 @@ class UserController extends Controller
 
         ]);
 
-        
-        // if($request ->hasFile('avatar'))
-        // {
+
+        if($request ->hasFile('avatar'))
+        {
 
             $filenamewithExt = $request ->file('avatar')->getClientOriginalName();
             $filename = pathinfo($filenamewithExt,PATHINFO_FILENAME);
@@ -76,16 +76,13 @@ class UserController extends Controller
              });
              $img->save($thumbnailpath);
 
-        // }
+        }
         
-        // else
-        // {
-
+        else
+        {
+            
             $fileNameToStore="default_user_avatar.png";
-        // }
-
-        return $fileNameToStore;
-
+        }
 
         //Create an instance of the user
         $user = User::find(Auth::user()->id);
@@ -94,15 +91,10 @@ class UserController extends Controller
         $user ->phone = $request ->input('phone');
         $user ->email = $request ->input('email');
         $user ->password = Auth::user()->password;
+        $user ->avatar = $fileNameToStore;
 
-
+        $user ->save();
         
-        return $fileNameToStore;
-       $user ->avatar = $fileNameToStore;
-        
-       //$user ->save();
-        
-        return "Saved";
-        return view('update_profile');
+        return view('profile');
     }
 }
