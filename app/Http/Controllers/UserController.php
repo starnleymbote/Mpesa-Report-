@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Hash;
+use Bycrpt;
 use Validate;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -28,8 +29,10 @@ class UserController extends Controller
             return back()->with('error', 'Current Password do not mactch');
         }
         
+        //hash password
+        $encrypt = bcrypt($request ->input('password'));
 
-        $update_password = User::where('id', Auth::user()->id)->update(['password' => $request ->input('password')]);
+        $update_password = User::where('id', Auth::user()->id)->update(['password' => $encrypt]);
         
         if(!$update_password)
         {
