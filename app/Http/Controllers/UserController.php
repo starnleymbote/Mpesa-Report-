@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use Hash;
 use Validate;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -10,15 +12,32 @@ class UserController extends Controller
 {
     public function changePassword(Request $request)
     {
+
         $this->validate($request, [
             
-            'password' => 'required',
-            'newpassword' => 'required|confirmed',
+            'current_password' => 'required|current_password',
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required'
 
         ]);
+
+        $match = Hash::check($request ->input('current_password'), Auth::user()->password);
         
-        return $request;
+        if($match != 1)
+        {
+            return back()->with('error', 'Current Password do not mactch');
+        }
         
+
+        $update_password = User::where('id', Auth::user()->id)->update(['password' => $request ->input('password')]);
+        
+        if(!$update_password)
+        {
+            return back()->with('error', 'Internal server error');
+        }
+
+        return back()->with('success', 'Password changed successfuly');
+         
     }
 
     public function updateProfile(Request $request)

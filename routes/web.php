@@ -43,6 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [PagesController::class,'userProfile'])->name('user.profile');
     Route::get('/c2b', [MpesaController::class,'customerToBusiness'])->name('c2b');
 
+    Route::get('update-password', [PagesController::class, 'updatePassword'])->name('update.password');
     Route::post('change-password', [UserController::class, 'changePassword'])->name('change.password');
 
 });

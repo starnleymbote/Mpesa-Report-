@@ -42,4 +42,9 @@ class PagesController extends Controller
     {
         return view('update_profile');
     }
+
+    public function updatePassword()
+    {
+        return view('update_password');
+    }
 }

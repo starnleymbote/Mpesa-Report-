@@ -157,7 +157,7 @@
             </a>
           </li>
           <li>
-            <a href="components-accordion.html">
+            <a href="{{ route('update.password') }}">
               <i class="bi bi-circle"></i><span>Change Password</span>
             </a>
           </li>
