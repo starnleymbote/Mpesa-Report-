@@ -70,7 +70,7 @@
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8">{{ Auth::user()->name }}</div>
+                    <div class="col-lg-9 col-md-8">{{ Auth::user()->phone }}</div>
                   </div>
 
                   <div class="row">
