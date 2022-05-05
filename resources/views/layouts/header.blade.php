@@ -236,8 +236,23 @@
   
               <li>
                 <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}">
-                  <i class="bi bi-box-arrow-right"></i>
-                  <span>Sign Out</span>
+                  
+            
+
+                  <a href="{{ route('logout') }}" class="nav-link " onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+                  <i class="nav-icon fas fa-sign-out-alt"></i>
+          
+                {{-- <p> --}}
+
+                {{-- </p> --}}
+                <i class="bi bi-box-arrow-right"></i>
+                <span>{{ __('Logout') }}</span>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+          </form>
+        </a>
                 </a>
               </li>
   
