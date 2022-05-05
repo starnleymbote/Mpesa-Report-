@@ -8,7 +8,7 @@
       <h1>Profile</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item">Users</li>
           <li class="breadcrumb-item active">Profile</li>
         </ol>
@@ -22,7 +22,8 @@
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+              <img src="/storage/users_avatar/{{Auth::user()->avatar}}" alt="Profile" class="rounded-circle">
+              {{-- <img style="border-radius: 50%;" src="/storage/users_avatar/{{Auth::user()->avatar}}" width="50px" height="50px"/> --}}
               <h2>{{Auth::user()->name}}</h2>
               <h3></h3>
               {{-- <div class="social-links mt-2">
