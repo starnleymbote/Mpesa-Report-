@@ -152,7 +152,7 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="{{ route('update.profile') }}">
               <i class="bi bi-circle"></i><span>Edit Profile</span>
             </a>
           </li>

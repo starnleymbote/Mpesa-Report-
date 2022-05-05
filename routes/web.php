@@ -24,7 +24,10 @@ use App\Http\Controllers\UserController;
 Route::middleware(['auth'])->group(function () {
     
     Route::get('/', [PagesController::class,'index'])->name('index');
+    
     Route::get('/update/profile', [PagesController::class,'updateProfile'])->name('update.profile');
+    Route::post('/store-update', [UserController::class,'updateProfile'])->name('store.update');
+    
     Route::get('/daily-transactions', [PagesController::class,'dailyTransactions'])->name('daily.transactions');
     Route::get('/weekly-transactions', [PagesController::class,'weeklyTransactions'])->name('weekly.transactions');
     Route::get('/auth', [MpesaController::class,'authorization'])->name('auth');

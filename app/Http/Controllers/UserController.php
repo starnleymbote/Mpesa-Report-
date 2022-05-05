@@ -20,4 +20,9 @@ class UserController extends Controller
         return $request;
         
     }
+
+    public function updateProfile(Request $request)
+    {
+        return view('update_profile');
+    }
 }
