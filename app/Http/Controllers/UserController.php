@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Auth;
 use Hash;
+use Image;
 use Bycrpt;
 use Validate;
 use App\Models\User;
@@ -45,6 +47,62 @@ class UserController extends Controller
 
     public function updateProfile(Request $request)
     {
+
+        $this ->validate($request, [
+
+            'full_names' => 'nullable|string',
+            'phone' => 'nullable|string',
+            'email' => 'nullable|email',
+            'avatar' => 'nullable|mimes:png,jpg,jpeg|max:4096',
+
+        ]);
+
+        
+        // if($request ->hasFile('avatar'))
+        // {
+
+            $filenamewithExt = $request ->file('avatar')->getClientOriginalName();
+            $filename = pathinfo($filenamewithExt,PATHINFO_FILENAME);
+            $extension = $request->file('avatar')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+            /**UPLOAD THE FILE */
+            $path = $request->file('avatar')->storeAs('public/users_avatar',$fileNameToStore);
+
+             /**RESIZE IMAGE HERE*/
+             $thumbnailpath = public_path('storage/users_avatar/'.$fileNameToStore);
+             $img = Image::make($thumbnailpath)->resize(260, 260, function($constraint) {
+                 $constraint->aspectRatio();
+             });
+             $img->save($thumbnailpath);
+
+        // }
+        
+        // else
+        // {
+
+            $fileNameToStore="default_user_avatar.png";
+        // }
+
+        return $fileNameToStore;
+
+
+        //Create an instance of the user
+        $user = User::find(Auth::user()->id);
+
+        $user ->name = $request ->input('full_names');
+        $user ->phone = $request ->input('phone');
+        $user ->email = $request ->input('email');
+        $user ->password = Auth::user()->password;
+
+
+        
+        return $fileNameToStore;
+       $user ->avatar = $fileNameToStore;
+        
+       //$user ->save();
+        
+        return "Saved";
         return view('update_profile');
     }
 }

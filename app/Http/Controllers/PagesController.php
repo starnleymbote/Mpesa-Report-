@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -40,7 +41,11 @@ class PagesController extends Controller
 
     public function updateProfile()
     {
-        return view('update_profile');
+
+        $user = Auth::user();
+
+
+        return view('update_profile')->with('user', $user);
     }
 
     public function updatePassword()
