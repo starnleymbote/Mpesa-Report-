@@ -19,11 +19,12 @@ class Mpesa{
         //The consumer key and secret are base64-encoded and passed on to the API as
         // an authorization header of type Basic 
 
-
-        $credentials = base64_encode('Nx2XPJYTJUYKo3VOxFrnVVv1OlLrOabF:DXd6yRUxVZgT00Oc');
-        //$credentials = base64_encode('zHdFkB3lNsiyMVqSs8WIfB4G84ivhu0y:Bbc0W7tKDhOEWL6a');
+        $consumer_key = env('MPESA_CONSUMER_KEY');
+        $consumer_secret = env('MPESA_CONSUMER_SECRET');
+        $credentials = base64_encode($consumer_key.':'.$consumer_secret);
+        
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Authorization: Basic '.$credentials)); //setting a custom header
-        //curl_setopt($curl, CURLOPT_HEADER, true);
+        //curl  _setopt($curl, CURLOPT_HEADER, true);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
@@ -36,5 +37,7 @@ class Mpesa{
         return $oauth_token;
 
     }
+
+
 
 }

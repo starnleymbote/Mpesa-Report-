@@ -38,15 +38,21 @@ Route::middleware(['auth'])->group(function () {
     //     \Log::info("Hello");
     // });
     Route::get('/validation', [MpesaController::class,'validationUrl'])->name('validation.url');
-    Route::get('/validation/url', [MpesaController::class,'registerUrl'])->name('register.url');
+    Route::post('/validation/url', [MpesaController::class,'registerUrl'])->name('register.url');
     //Route::get('/confirmation', [MpesaController::class,'confirmationUrl'])->name('confirmation.url');
     Route::get('/profile', [PagesController::class,'userProfile'])->name('user.profile');
-    Route::get('/c2b', [MpesaController::class,'customerToBusiness'])->name('c2b');
+    Route::post('/c2b', [MpesaController::class,'customerToBusiness'])->name('c2b');
+    //Route::get('/simulate', [MpesaController::class,'simulate']);
 
     Route::get('update-password', [PagesController::class, 'updatePassword'])->name('update.password');
     Route::post('change-password', [UserController::class, 'changePassword'])->name('change.password');
 
 });
+
+//New Mpesa Routes
+
+Route::get('register-urls', [MpesaController::class, 'registerURLs']);
+Route::get('simulate', [MpesaController::class, 'simulateC2B']);
 
 
 
